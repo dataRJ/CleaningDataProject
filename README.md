@@ -10,6 +10,7 @@ The overall requirement of this project is take a set of data [detailed here](ht
 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 3. Uses descriptive activity names to name the activities in the data set
 4. Appropriately labels the data set with descriptive variable names. 
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.  
 
 ### Merging the training and test sets into one data set
 The function is self contained does not need the data to be downloaded ahead of time.  When executed it will check the local directory for a file called data.zip.  If present it is assumed to be the source data and will proceed to analyze it.  If not present it will download the file 
@@ -42,9 +43,9 @@ Please see the CodeBook.md for a description of how the activities data was modi
 
 The source data files do not have header rows with descriptions of the data so it is necessary to get the feature names and add this information to our data set.  To do this the feature names from requirement 2 were retained and used here to add to the data frame as colnames for the associated columns of data in the data frame.  This vector of labels was simply augmented with the known values of Activity and Subject to account for the way that the data was merged together.
 
-## Final updates and returned data
+## independent tidy data set with the average of each variable for each activity and each subject
 
-Finally in order to make reviewing the data easier the Activity and Subject columns were updated to be the first two columns of the returned data and the tidy Data set is returned.
+Finally in order to generate a tidy Data set mean values for all numeric features are calculated grouped by both the Activity and Subject.  This resulting data set will now have one set of observations for each possible combination of Activity and Subject.
 
-## generate_Means.R
-This function will take the tidy Data set provided by the run_Analysis function and will generate a set of mean values for all numeric features grouped by both the Activity and Subject.  This resulting data set will now have one set of observations for each combination.
+This final dataset is then returned.
+

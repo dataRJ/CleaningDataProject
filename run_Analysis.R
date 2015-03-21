@@ -70,9 +70,9 @@ run_Analysis <- function() {
                                 "fBodyBodyGyroMag-meanFreq()", "fBodyBodyGyroJerkMag-mean()", "fBodyBodyGyroJerkMag-std()", 
                                 "fBodyBodyGyroJerkMag-meanFreq()", "Activity", "Subject")
         
-        ## To make it a bit easier on the user we'll just shift the Activity and Subjects to be the first two columns
-        fulldata <- fulldata[,c(80,81,1:79)]
+        # Geneate tidy Data set of mean values for each Activity and Subject
+        results <- ddply(fulldata,.(Activity,Subject),numcolwise(mean))
         
         ## Return the new tidy dataset
-        fulldata       
+        results       
 }
