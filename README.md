@@ -45,3 +45,6 @@ The source data files do not have header rows with descriptions of the data so i
 ## Final updates and returned data
 
 Finally in order to make reviewing the data easier the Activity and Subject columns were updated to be the first two columns of the returned data and the tidy Data set is returned.
+
+## generate_Means.R
+This function will take the tidy Data set provided by the run_Analysis function and will generate a set of mean values for all numeric features grouped by both the Activity and Subject.  This resulting data set will now have one set of observations for each combination.
